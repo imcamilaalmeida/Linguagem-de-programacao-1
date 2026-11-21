@@ -1,0 +1,293 @@
+=== EXERCÍCIO 1 ===
+Comandos
+
+cd /tmp
+gcc hello.c -o hello.exe
+./hello.exe
+
+Código
+
+#include <stdio.h>
+
+int main (void) {
+    printf("Ola mundo!\n");
+    return 0;
+}
+
+Saída
+
+Ola mundo!
+
+=== EXERCÍCIO 2 ===
+Comandos
+
+nano exercicio2.c
+gcc exercicio2.c -o exercicio2
+./exercicio2
+
+Código
+#include <stdio.h>
+
+int main (void) {
+    int prim_valor;
+    int seg_valor;
+    printf("Insira o primeiro valor: ");
+    scanf("%i", &prim_valor);
+    printf("Insira o segundo valor: ");
+    scanf("%i", &seg_valor);
+    if (prim_valor > seg_valor){
+        printf("O primeiro valor %i é o maior\n", prim_valor);
+    }
+    else {
+        printf("O segundo valor %i é o maior\n",seg_valor);
+    }
+    return 0;
+}
+
+Saída
+
+Insira o primeiro valor: 1
+Insira o segundo valor: 2
+O segundo valor 2 é o maior
+
+=== EXERCÍCIO 3 ===
+
+Comandos
+nano exercicio3.c
+gcc exercicio3.c -o exercicio3
+./exercicio3
+
+Código
+#include <stdio.h>
+int main (void){
+    int orcamento = 1000;
+    float dolar = 3.17;
+    float preco;
+    printf("Insira o preço em doláres: ");
+    scanf("%f", &preco);
+    float total = dolar * preco;
+    if (total <= 1000){
+        printf("BOM NEGÓCIO\n");
+    }
+    return 0;
+}
+
+Saída
+
+Insira o preço em doláres: 300
+BOM NEGÓCIO
+
+=== EXERCÍCIO 4 ===
+
+Comandos
+nano exercicio4.c
+gcc exercicio4.c -o exercicio4
+./exercicio4
+
+Código
+#include <stdio.h>
+
+int main(void){
+    float milha = 1.6;
+    float velocidade;
+    printf("Insira a velocidade em mph: ");
+    scanf("%f", &velocidade);
+    float quilometro = velocidade * milha;
+    if (quilometro < 80){
+        printf("ACELERE\n");
+    }
+    else if (quilometro > 100)
+    {
+        printf("DESACELERE\n");
+    }
+    else {
+        printf("MANTENHA\n");
+    }
+    return 0;
+}
+
+Saída
+root@Home-PC:/tmp# ./exercicio4
+Insira a velocidade em mph: 62
+MANTENHA
+root@Home-PC:/tmp# ./exercicio4
+Insira a velocidade em mph: 63
+DESACELERE
+root@Home-PC:/tmp# ./exercicio4
+Insira a velocidade em mph: 42
+ACELERE
+
+=== EXERCÍCIO 5 ===
+
+Comandos
+nano exercicio5.c
+gcc exercicio5.c -o exercicio5
+./exercicio5
+
+Código
+#include <stdio.h>
+
+int main(void){
+    int soma = 0;
+    int numero;
+    printf("Insira o número: ");
+    scanf("%i",&numero);
+    while (numero != 0) {
+        soma = soma + numero;
+        printf("Insira o número: ");
+        scanf("%i",&numero);
+    }
+    printf("Soma: %i \n",soma);
+    return 0;
+}
+
+Saída
+root@Home-PC:/tmp# ./exercicio5
+Insira o número: 10
+Insira o número: 10
+Insira o número: 10
+Insira o número: 10
+Insira o número: 0
+Soma: 40
+
+=== EXERCÍCIO 6 ===
+
+Comandos
+nano exercicio6.c
+gcc exercicio6.c -o exercicio6
+./exercicio6
+
+Código
+#include <stdio.h>
+int main (void){
+    int n;
+    printf("Insira um número n: ");
+    scanf("%i", &n);
+    int i = 1;
+    int soma = 0;
+    while (i <= n){
+        soma = soma + (i*i);
+        i = i + 1;
+    }
+    printf("Somatório = %i \n", soma);
+    return 0;
+}
+
+Saída
+Insira um número n: 3
+Somatório = 14
+
+=== EXERCÍCIO 7 ===
+Comandos
+nano exercicio7.c
+gcc exercicio7.c -o exercicio7
+./exercicio7
+
+Código
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void){
+    int times = 0, pontoMais = 0, pontoMenos = 0;
+    char nome[20], timeMenos[20] = "" , timeMais[20] = "";
+    int pontos, vitoria, derrota, empate;
+
+    while (times < 20){
+        printf("Insira o nome do time: ");
+        scanf("%19s", nome);
+        printf("Insira a quantidade de vitórias: ");
+        scanf("%i", &vitoria);
+        printf("Insira a quantidade de empates: ");
+        scanf("%i", &empate);
+        printf("Insira a quantidade de derrotas: ");
+        scanf("%i", &derrota);
+        pontos = (3 * vitoria) + (1 * empate) + (0 * derrota);
+        if (pontos > pontoMais){
+            pontoMais = pontos;
+            strcpy(timeMais, nome);
+        }
+        else if (pontos < pontoMenos){
+            pontoMenos = pontos;
+            strcpy(timeMenos, nome);
+        }
+        times = times + 1;
+    }
+    printf("O time com mais pontos é o %19s com %i pontos e o time com menos pontos é o %19s com %i pontos. \n", timeMais, pontoMais, timeMenos, pontoMenos);
+    return 0;
+}
+
+Saída
+
+root@Home-PC:/tmp# ./exercicio7
+Insira o nome do time: Flamengo
+Insira a quantidade de vitórias: 24
+Insira a quantidade de empates: 7
+Insira a quantidade de derrotas: 4
+.
+.
+.
+Insira o nome do time: Chapecoense
+Insira a quantidade de vitórias: 4
+Insira a quantidade de empates: 9
+Insira a quantidade de derrotas: 22
+O time com mais pontos é o Flamengo com 79 pontos e o time com menos pontos é o Chapecoense com 21 pontos.
+
+=== EXERCÍCIO 8 ===
+Comandos
+nano exercicio8.py
+python3 exercicio8.py
+nano exercicio8.c
+gcc exercicio8.c -o exercicio8
+./exercicio8
+
+Código
+Python
+n1 = int(input("Insira o número 1: "))
+n2 = int(input("Insira o número 2: "))
+while (n1 < n2):
+    n1 = n1 + 1
+    print(n1)
+
+C
+#include <stdio.h>
+int main(void){
+int n1;
+printf("Insira o número 1: ");
+scanf("%i", &n1);
+int n2;
+printf("Insira o número 2: ");
+scanf("%i", &n2);
+while (n1 < n2){
+    n1 = n1 + 1;
+    printf("%i\n",n1);
+}
+return 0;
+}
+
+Saída
+Python
+Insira o número 1: 1
+Insira o número 2: 10
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+C
+Insira o número 1: 1
+Insira o número 2: 10
+2
+3
+4
+5
+6
+7
+8
+9
+10
